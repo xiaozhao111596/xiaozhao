@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小赵的酷炫网站</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: '微软雅黑', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #000;
+            perspective: 1500px;
+            overflow: hidden;
+            color: #fff;
+        }
+
+        /* 大标题样式 */
+        .main-title {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+            z-index: 1000;
+            text-shadow: 0 0 20px #ff0000, 0 0 20px #00ff00;
+        }
+
+        /* 平台链接区 */
+        .platform-links {
+            position: fixed;
+            top: 120px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 1000;
+            font-size: 32px;
+        }
+
+        .platform-links a {
+            color: #48f;
+            text-decoration: none;
+            display: block;
+            margin: 15px 0;
+            transition: color 0.3s;
+        }
+
+        .platform-links a:hover {
+            color: #f84;
+            text-shadow: 0 0 10px #fff;
+        }
+
+        /* 搜索提示 */
+        .search-tip {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 36px;
+            color: #ffd700;
+            text-shadow: 0 0 15px #ff0;
+        }
+
+        /* 3D立方体特效 */
+        .scene {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            animation: rotateCube 15s linear infinite;
+        }
+
+        .cube-face {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            opacity: 0.8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(255,255,255,0.3);
+        }
+
+        .front { background: linear-gradient(45deg, #ff0000, #ff6600); transform: translateZ(200px); }
+        .back { background: linear-gradient(45deg, #00ff00, #0066ff); transform: rotateY(180deg) translateZ(200px); }
+        .left { background: linear-gradient(45deg, #0000ff, #6600ff); transform: rotateY(-90deg) translateZ(200px); }
+        .right { background: linear-gradient(45deg, #ff00ff, #00ffff); transform: rotateY(90deg) translateZ(200px); }
+        .top { background: linear-gradient(45deg, #ffcc00, #00ffcc); transform: rotateX(-90deg) translateZ(200px); }
+        .bottom { background: linear-gradient(45deg, #9933ff, #ff3399); transform: rotateX(90deg) translateZ(200px); }
+
+        @keyframes rotateCube {
+            from { transform: rotateX(-30deg) rotateY(0); }
+            to { transform: rotateX(-30deg) rotateY(360deg); }
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .main-title { font-size: 32px; }
+            .platform-links { font-size: 24px; }
+            .search-tip { font-size: 28px; }
+            .cube-face { width: 280px; height: 280px; font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 大标题 -->
+    <div class="main-title">
+        欢迎来到小赵的网站！
+    </div>
+
+    <!-- 平台链接 -->
+    <div class="platform-links">
+        <a href="https://space.bilibili.com/" target="_blank">B站主页</a>
+        <a href="https://www.douyin.com/" target="_blank">抖音主页</a>
+        <a href="https://www.ixigua.com/" target="_blank">西瓜视频主页</a>
+    </div>
+
+    <!-- 搜索提示 -->
+    <div class="search-tip">
+        搜索关注：<strong>无敌小赵111</strong>
+    </div>
+
+    <!-- 3D立方体场景 -->
+    <div class="scene">
+        <div class="cube-face front">FRONT</div>
+        <div class="cube-face back">BACK</div>
+        <div class="cube-face left">LEFT</div>
+        <div class="cube-face right">RIGHT</div>
+        <div class="cube-face top">TOP</div>
+        <div class="cube-face bottom">BOTTOM</div>
+    </div>
+</body>
+</html>
