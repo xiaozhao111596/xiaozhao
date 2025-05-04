@@ -1,74 +1,201 @@
-<!DOCTYPE html>  
-<html lang="zh-CN">  
-<head>  
-  <meta charset="UTF-8">  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-  <title>小赵的创作空间 | 全平台内容创作者</title>  
-  <base target="_blank">  
-</head>  
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小赵的创作空间 | 全平台创作者</title>
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
 
-<body>  
-  <!-- 顶部装饰栏（仅文本，无样式） -->  
-  <div>  
-    🌟 欢迎访问小赵的专属页面！点击平台链接了解更多  
-  </div>  
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
 
-  <!-- 主内容容器 -->  
-  <div>  
-    <!-- 头部徽章 -->  
-    <center>  
-      <h1><b>✨ 无敌小赵111 ✨</b></h1>  
-      <p><i>全平台内容创作者 | 专注优质原创</i></p>  
-    </center>  
+        /* 头部样式 */
+        .header {
+            background: linear-gradient(to bottom, #007BFF, #0056b3);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
 
-    <!-- 平台导航卡片 -->  
-    <h2>📌 我的创作阵地</h2>  
-    <ul>  
-      <li>  
-        <strong>抖音</strong>：  
-        <a href="https://www.huoshanzhibo.com/">直达主页</a>  
-        <span>🔍 搜索：无敌小赵111</span>  
-      </li>  
-      <li>  
-        <strong>哔哩哔哩</strong>：  
-        <a href="https://www.bilibili.com/">发布视频空间</a>  
-        <span>🔍 搜索：无敌小赵111</span>  
-      </li>  
-      <li>  
-        <strong>西瓜视频</strong>：  
-        <a href="https://www.ixigua.com/">直达频道</a>  
-        <span>🔍 搜索：无敌小赵111</span>  
-      </li>  
-    </ul>  
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
 
-    <!-- 支持步骤流程图 -->  
-    <h2>❤️ 三步支持计划</h2>  
-    <ol type="1">  
-      <li>  
-        <b>第一步：关注</b>  
-        <span>→ 点击平台「+关注」按钮，开启内容推送</span>  
-      </li>  
-      <li>  
-        <b>第二步：互动</b>  
-        <span>→ 点赞/评论/分享，让更多人看到</span>  
-      </li>  
-      <li>  
-        <b>第三步：支持</b>  
-        <span>→ B站投币/西瓜收藏，助力持续创作</span>  
-      </li>  
-    </ol>  
+        .header p {
+            font-size: 1.2rem;
+            font-style: italic;
+        }
 
-    <!-- 荣誉墙 -->  
-    <h2>🏆 我的创作荣誉</h2>  
-    <blockquote>  
-      <p>• 优质创作者认证</p>  
-    </blockquote>  
-  </div>  
+        /* 容器样式 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
 
-  <!-- 页脚版权 -->  
-  <hr>  
-  <center>  
-    <p>&copy; 2025 无敌小赵111个人主页</p>  
-  </center>  
-</body>  
-</html>  
+        /* 平台卡片 */
+        .platform-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .platform-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .platform-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .platform-card h3 {
+            color: #007BFF;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .platform-card p {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .platform-link {
+            display: block;
+            text-align: center;
+            padding: 0.8rem;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .douyin { background-color: #FF3B30; color: white; }
+        .bilibili { background-color: #00FFFF; color: #000; }
+        .xigua { background-color: #FF9900; color: white; }
+
+        .platform-link:hover {
+            opacity: 0.9;
+            text-decoration: none;
+        }
+
+        /* 步骤列表 */
+        .steps {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .steps h2 {
+            color: #FF5733;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .steps ol {
+            list-style: none;
+            counter-reset: step;
+        }
+
+        .steps li {
+            position: relative;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+        }
+
+        .steps li:before {
+            content: counter(step);
+            counter-increment: step;
+            position: absolute;
+            left: 0;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: #007BFF;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* 页脚样式 */
+        .footer {
+            background: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .platform-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>✨ 无敌小赵111 ✨</h1>
+            <p>全平台内容创作者 | 专注优质原创</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- 平台卡片 -->
+        <div class="platform-cards">
+            <div class="platform-card">
+                <h3>抖音</h3>
+                <p>🔍 搜索：无敌小赵111</p>
+                <a href="https://www.huoshanzhibo.com/" class="platform-link douyin">直达主页</a>
+            </div>
+
+            <div class="platform-card">
+                <h3>哔哩哔哩</h3>
+                <p>🔍 搜索：无敌小赵111</p>
+                <a href="https://www.bilibili.com/" class="platform-link bilibili">发布视频空间</a>
+            </div>
+
+            <div class="platform-card">
+                <h3>西瓜视频</h3>
+                <p>🔍 搜索：无敌小赵111</p>
+                <a href="https://www.ixigua.com/" class="platform-link xigua">直达频道</a>
+            </div>
+        </div>
+
+        <!-- 支持步骤 -->
+        <div class="steps">
+            <h2>❤️ 三步支持计划</h2>
+            <ol>
+                <li>点击平台「+关注」按钮，开启内容推送</li>
+                <li>点赞/评论/分享，让更多人看到</li>
+                <li>B站投币/西瓜收藏，助力持续创作</li>
+            </ol>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 无敌小赵111个人主页</p>
+    </footer>
+</body>
+</html>
